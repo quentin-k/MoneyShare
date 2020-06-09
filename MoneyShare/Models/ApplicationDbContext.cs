@@ -1,20 +1,15 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MoneyStore.Models;
 
-namespace MoneyShare.Models
+namespace MoneyStore.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class WListContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public WListContext (DbContextOptions<WListContext> options)
             : base(options)
-        { }
-
-        public DbSet<Member> Members { get; set; }
-
+        {
+        }
+        public DbSet<MemberModel> MemberModels { get; set; }
     }
 }
