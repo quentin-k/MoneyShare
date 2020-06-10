@@ -4,9 +4,9 @@ using MoneyShare.Models;
 
 namespace MoneyShare.Data
 {
-    public class MoneyShare : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        public MoneyShare (DbContextOptions<MoneyShare> options)
+        public ApplicationDbContext (DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
