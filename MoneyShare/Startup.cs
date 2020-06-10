@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MoneyShare.Data;
 
 namespace MoneyShare
 {
@@ -29,7 +31,7 @@ public class Startup
                 options.UseSqlite("Data Source=sqlite.db");
             });
 
-            services.AddIdentity<Memeber,IdentityRole>(options => {
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedPhoneNumber = false;
@@ -42,7 +44,7 @@ public class Startup
                 options.Lockout.AllowedForNewUsers = false;
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                options.User.AllowedUserNameCharacters = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ１２３４５６７８９０";
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz1234567890";
                 options.User.RequireUniqueEmail = true;
                 //options.Tokens
                 //options.ClaimsIdentity

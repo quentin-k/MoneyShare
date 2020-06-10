@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MoneyStore.Models;
+using MoneyShare.Models;
 
-namespace MoneyStore.Data
+namespace MoneyShare.Data
 {
-    public class WListContext : IdentityDbContext
+    public class MoneyShare : IdentityDbContext
     {
-        public WListContext (DbContextOptions<WListContext> options)
+        public MoneyShare (DbContextOptions<MoneyShare> options)
             : base(options)
         {
         }
