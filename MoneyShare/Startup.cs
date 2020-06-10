@@ -38,7 +38,7 @@ public class Startup
                 options.UseSqlite("Data Source=sqlite.db");
             });
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+            services.AddIdentity<MemberModel, IdentityRole>(options => {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedPhoneNumber = false;

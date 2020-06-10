@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using MoneyShare.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<MemberModel> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,6 +10,7 @@
     <title>@ViewData["Title"] - MoneyShare</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/fontawesome.css" />
 </head>
 <body>
     <header>
@@ -24,6 +29,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Authentication" asp-action="Register">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="register" asp-controller="Home" asp-action="Register" class="nav-link text-dark hide-loggedin">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="login" href="#" class="nav-link text-dark hide-loggedin" data-toggle="modal" data-target="#modalLogin">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="signout" href="#" class="nav-link text-dark show-loggedin">Sign Out</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,6 +57,38 @@
             &copy; 2020 - MoneyShare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+
+    <div class="modal fade" id="modalLogin">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Enter your credentials to log in.
+                    <span class="text-danger" id="loginStatus"></span>
+                </div>
+                <div class="modal-body">
+                    <div id="loginUsernamePasswordContainer">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" placeholder="Enter your username" id="loginUsername" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" placeholder="Enter your password" id="loginPassword" />
+                        </div>
+                    </div>
+                    <div class="form-group d-none" id="loginTwoFactorFormGroup">
+                        <label for="TwoFactorValue">Enter the six digit code from your email:</label>
+                        <input type="password" class="form-control" placeholder="Enter your code" id="loginTwoFactorValue" />
+                    </div>
+                    <div id="loginSpinner" class="spinner-border text-primary d-none"></div>
+                    <button id="loginButton" type="submit" class="btn btn-primary">Log In</button>
+                    <button class="d-none btn-primary btn" id="confirmTwoFactorButton" type="submit">Verify SMS Code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

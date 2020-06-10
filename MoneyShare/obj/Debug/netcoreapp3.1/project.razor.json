@@ -20536,6 +20536,26 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/ApplicationDb/Edit.cshtml",
+      "TargetPath": "Views\\ApplicationDb\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/ApplicationDb/Index.cshtml",
+      "TargetPath": "Views\\ApplicationDb\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/ApplicationDb/Details.cshtml",
+      "TargetPath": "Views\\ApplicationDb\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/Home/Register.cshtml",
+      "TargetPath": "Views\\Home\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -20551,8 +20571,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/ApplicationDb/Create.cshtml",
+      "TargetPath": "Views\\ApplicationDb\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quentin/MoneyShare/MoneyShare/Views/ApplicationDb/Delete.cshtml",
+      "TargetPath": "Views\\ApplicationDb\\Delete.cshtml",
       "FileKind": "mvc"
     }
   ],

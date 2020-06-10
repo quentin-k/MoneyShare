@@ -1,3 +1,11 @@
+function enableRegisterSpinner(on) {
+    var registerSpinner = document.getElementById('registerSpinner');
+    if (on)
+        registerSpinner.classList.remove('d-none');
+    else
+        registerSpinner.classList.add('d-none');
+}
+
 document.getElementById("registerButton").addEventListener("click", e => {
     var registerStatus = document.getElementById('registerStatus');
     registerStatus.innerText = "";
@@ -14,7 +22,7 @@ document.getElementById("registerButton").addEventListener("click", e => {
         return;
     }
 
-    data = { 'firstname': firstName, 'lastname': lastName, 'email': email, 'username': username, 'password': password };
+    data = { 'firstname': firstName, 'lastname': lastName,'email':email,'username': username, 'password': password };
     myFetch('/api/v1/Register', 'PUT', false, data)
         .then(response => {
             if (!response.ok) {

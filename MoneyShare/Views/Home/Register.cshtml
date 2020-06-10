@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+<div class="text-danger" id="registerStatus"></div>
+<div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input type="text" class="form-control" placeholder="Enter your first name" id="firstName" />
+</div>
+<div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <input type="text" class="form-control" placeholder="Enter your last name" id="lastName" />
+</div>
+<div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" placeholder="Enter your email" id="email" />
+</div>
+<div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" class="form-control" placeholder="Enter your username" id="username" />
+</div>
+<div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" placeholder="Enter your password" id="password" />
+</div>
+<div class="form-group">
+    <label for="password">Confirm Password:</label>
+    <input type="password" class="form-control" placeholder="Confirm your password" id="confirmPassword" />
+</div>
+<button id="registerButton" type="submit" class="btn btn-primary"><div id="registerSpinner" class="spinner-border text-primary d-none"></div>Register</button>
+
+
+<script src="~/js/register.js"></script>
