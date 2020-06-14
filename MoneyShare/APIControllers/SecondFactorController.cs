@@ -32,8 +32,8 @@ namespace MoneyShare.Controllers
             UserManager<MemberModel> userManager,
             RoleManager<IdentityRole> roleManager)
         {
-            _configuration = configuration;
             _signInManager = signInManager;
+            _configuration = configuration;
             _userManager = userManager;
             _memberServices = memberServices;
             _roleManager = roleManager;
