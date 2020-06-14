@@ -18,7 +18,7 @@ using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace MoneyShare.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace MoneyShare.Controllers
         private IMemberServices _memberServices;
         private IConfiguration _configuration;
 
-        private static string _LoginFailureMessage = "Login Failed.";
+        // private static string _LoginFailureMessage = "Login Failed.";
 
         public LoginController(
             SignInManager<MemberModel> signInManager,
@@ -38,7 +38,7 @@ namespace MoneyShare.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
             _memberServices = memberServices;
-            
+
             _configuration = configuration;
         }
 

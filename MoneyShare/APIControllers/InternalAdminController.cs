@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MoneyShare.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class InternalAdminController : ControllerBase
     {
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult GetAction()
         {
             string name = this.HttpContext.User.Identity.Name;

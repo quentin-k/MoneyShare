@@ -11,7 +11,7 @@ using MoneyShare.ViewModels;
 
 namespace MoneyShare.Controllers
 {
-    [Route("api/v1/controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class RegisterController : ControllerBase
     {

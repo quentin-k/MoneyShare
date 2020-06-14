@@ -22,8 +22,8 @@ document.getElementById("registerButton").addEventListener("click", e => {
         return;
     }
 
-    data = { 'firstname': firstName, 'lastname': lastName,'email':email,'username': username, 'password': password };
-    myFetch('/api/v1/Register', 'PUT', false, data)
+    data = { 'firstname': firstName, 'lastname': lastName, 'email': email, 'username': username, 'password': password };
+    myFetch('/api/Register', 'PUT', false, data)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);

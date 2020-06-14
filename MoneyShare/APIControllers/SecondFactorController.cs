@@ -16,7 +16,7 @@ using MoneyShare.Models;
 
 namespace MoneyShare.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class SecondFactorController : ControllerBase
     {
