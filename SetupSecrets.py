@@ -22,6 +22,9 @@ def genJwt():
 email = input("What is your email? ")
 clear()
 
+# set email from
+email_from = input("What is your desired from email ("+email+") is default: ")
+
 # set email password
 password = input("What is your email password? ")
 clear()
@@ -49,7 +52,7 @@ clear()
 # configure dotnet secrets
 dotnetMsg = "dotnet user-secrets set "
 os.system("cd ./MoneyShare/")
-os.system(dotnetMsg+'"Email: Username" "'+email+'"')
+os.system(dotnetMsg+'"Email:Username" "'+email+'"')
 os.system(dotnetMsg+'"Email:Host" "'+host+'"')
 os.system(dotnetMsg+'"Email:Password" "'+password+'"')
 os.system(dotnetMsg+'"Email:Port"'+port+'"')
