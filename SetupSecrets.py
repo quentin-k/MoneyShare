@@ -23,8 +23,11 @@ email = input("What is your email? ")
 clear()
 
 # set email from
-email_from = input("What is your desired from email ("+email+") is default: ")
-
+email_from = input("What is your desired from email (" + email + ") is default: ")
+clear()
+if email_from == "":
+    email_from = email
+    
 # set email password
 password = input("What is your email password? ")
 clear()
@@ -55,8 +58,8 @@ os.system("cd ./MoneyShare/")
 os.system(dotnetMsg+'"Email:Username" "'+email+'"')
 os.system(dotnetMsg+'"Email:Host" "'+host+'"')
 os.system(dotnetMsg+'"Email:Password" "'+password+'"')
-os.system(dotnetMsg+'"Email:Port"'+port+'"')
-os.system(dotnetMsg + '"Email:From" "' + email + '"')
+os.system(dotnetMsg+'"Email:Port" "'+port+'"')
+os.system(dotnetMsg + '"Email:From" "' + email_from + '"')
 os.system(dotnetMsg + '"JwtKey" "' + jwt + '"')
 
 print("Done")
