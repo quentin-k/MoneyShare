@@ -331,12 +331,12 @@ using Microsoft.AspNetCore.Identity;
                     </div>
    ");
                 WriteLiteral(@"                 <div class=""form-group d-none"" id=""loginTwoFactorFormGroup"">
-                        <label for=""TwoFactorValue"">Enter the six digit code from your email:</label>
+                        <label for=""TwoFactorValue"">Enter the eight digit code from your email:</label>
                         <input type=""password"" class=""form-control"" placeholder=""Enter your code"" id=""loginTwoFactorValue"" />
                     </div>
                     <div id=""loginSpinner"" class=""spinner-border text-primary d-none""></div>
                     <button id=""loginButton"" type=""submit"" class=""btn btn-primary"">Log In</button>
-                    <button class=""d-none btn-primary btn"" id=""confirmTwoFactorButton"" type=""submit"">Verify SMS Code</button>
+                    <button class=""d-none btn-primary btn"" id=""confirmTwoFactorButton"" type=""submit"">Verify Authentication Code</button>
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MoneyShare.Models;
+using MoneyShare.Repos;
 
 namespace MoneyShare
 {
@@ -80,6 +81,8 @@ public class Startup
 
             services.AddControllersWithViews();
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddScoped<IMemberServices, MemberServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
