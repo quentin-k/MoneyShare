@@ -23,8 +23,8 @@ namespace MoneyShare.Repos
 
         public async Task SendTwoFactorCodeAsync(MemberModel member)
         {
-            int code = _rand.Next(0, 99999999);
-            member.TwoFactorCode = code.ToString("00000000");
+            int code = _rand.Next(0, 999999);
+            member.TwoFactorCode = code.ToString("000000");
             member.TwoFactorCodeDateTime = DateTime.Now;
             await _userManager.UpdateAsync(member);
             _emailService.EmailTwoFactorCode(member);
