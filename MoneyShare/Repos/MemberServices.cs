@@ -30,6 +30,11 @@ namespace MoneyShare.Repos
             _emailService.EmailTwoFactorCode(member);
         }
 
+        public void SendResetLink(MemberModel member, String link)
+        {
+            _emailService.EmailForgotPassword(member, link);
+        }
+
         public bool ValidateTwoFactorCodeAsync(MemberModel member, string code)
         {
             if(member.TwoFactorEnabled && member.TwoFactorCodeDateTime!=null && !string.IsNullOrEmpty(member.TwoFactorCode))

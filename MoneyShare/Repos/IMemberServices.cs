@@ -9,6 +9,7 @@ namespace MoneyShare.Repos
     public interface IMemberServices
     {
         public Task SendTwoFactorCodeAsync(MemberModel member);
+        public void SendResetLink(MemberModel member, String link);
         public bool ValidateTwoFactorCodeAsync(MemberModel member, string code);
     }
 }

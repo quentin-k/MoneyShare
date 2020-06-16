@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MoneyShare.Models;
-//using MoneyShare.Repos;
+using MoneyShare.Repos;
 using MoneyShare.ViewModels;
 
 namespace MoneyShare.Controllers
@@ -18,7 +18,10 @@ namespace MoneyShare.Controllers
         private SignInManager<MemberModel> _signInManager;
         private UserManager<MemberModel> _userManager;
         private RoleManager<IdentityRole> _roleManager;
-        public RegisterController(SignInManager<MemberModel> signInManager, UserManager<MemberModel> userManager, RoleManager<IdentityRole> roleManager)
+        public RegisterController(
+            SignInManager<MemberModel> signInManager,
+            UserManager<MemberModel> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;

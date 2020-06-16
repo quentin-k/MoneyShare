@@ -13,7 +13,7 @@ namespace MoneyShare.Controllers
     [Authorize]
     public class InternalController : ControllerBase
     {
-        [Authorize(Roles = "Admin,Member")]
+        [Authorize(Roles = "Admin, Staff, Member")]
         public ActionResult Get()
         {
             string name = this.HttpContext.User.Identity.Name;

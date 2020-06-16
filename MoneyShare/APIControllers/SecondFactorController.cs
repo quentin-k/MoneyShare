@@ -47,20 +47,22 @@ namespace MoneyShare.Controllers
                 return new UnauthorizedResult();
             }
 
-            MemberModel user = await _userManager.FindByNameAsync(model.Username);
-            if (user != null)
+            MemberModel member = await _userManager.FindByNameAsync(model.Username);
+            if (member != null)
             {
-                Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.CheckPasswordSignInAsync(member, model.Password, false);
                 if (result.Succeeded)
                 {
-                    if (_memberServices.ValidateTwoFactorCodeAsync(user, model.SecondFactorValue))
+                    if (_memberServices.ValidateTwoFactorCodeAsync(member, model.SecondFactorValue))
                     {
-                        IList<string> roles = await _userManager.GetRolesAsync(user);
+                        IList<string> roles = await _userManager.GetRolesAsync(member);
                         string role = "";
                         if (roles.Contains("Admin"))
                             role = "Admin";
-                        else if (roles.Contains("User"))
-                            role = "User";
+                        else if (roles.Contains("Staff"))
+                            role = "Staff";
+                        else if (roles.Contains("Member"))
+                            role = "Member";
 
                         JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
                         SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JwtKey"]));
@@ -68,7 +70,7 @@ namespace MoneyShare.Controllers
                         {
                             Subject = new ClaimsIdentity(new Claim[]
                             {
-                                new Claim(ClaimTypes.Name, user.Id.ToString()),
+                                new Claim(ClaimTypes.Name, member.Id.ToString()),
                                 new Claim(ClaimTypes.Role,role)
                             }),
                             Expires = DateTime.UtcNow.AddDays(7),

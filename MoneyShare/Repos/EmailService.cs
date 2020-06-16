@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MoneyShare.Models;
 
@@ -25,6 +27,11 @@ namespace MoneyShare.Repos
         {
             string message = $"Hello {member.LastName}, {member.FirstName}\nYour 2FA code is: {member.TwoFactorCode}";
             SendEmailAsync(member.Email, "Authentication code", message);
+        }
+        public void EmailForgotPassword(MemberModel member, String link)
+        {
+            string message = $"Hello {member.LastName}, {member.FirstName}\nClick the follwing link to reset your password: {link}";
+            SendEmailAsync(member.Email, "Reset password", message);
         }
         public Task SendEmailAsync(string recipient, string subject, string message)
         {
