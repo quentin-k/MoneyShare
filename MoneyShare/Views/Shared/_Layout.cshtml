@@ -12,6 +12,22 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/fontawesome.css" />
+     <script>
+        var jwt = sessionStorage.getItem('jwt');
+        if (jwt != null && jwt != " ") {
+            var requestInfo = { 'method': 'GET', headers: { 'Authorization': 'bearer ' + jwt }, credentials: 'same-origin' };
+            fetch('/api/AuthorizeCheck', requestInfo)
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('LoginNavLink').classList.add('d-none');
+                        document.getElementById('RegisterNavLink').classList.add('d-none');
+                        document.getElementById('MyAccountNavLink').classList.remove('d-none');
+                        document.getElementById('LogoutNavLink').classList.remove('d-none');
+                        document.getElementById('WelcomeTitle').innerText = "Welcome, you are logged in now";
+                    }
+                });
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -91,7 +107,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
         <div class="modal fade" id="modalForgotPassword">
             <div class="modal-dialog">
                 <div class="modal-content">
