@@ -21,8 +21,8 @@
                     if (response.ok) {
                         document.getElementById('LoginNavLink').classList.add('d-none');
                         document.getElementById('RegisterNavLink').classList.add('d-none');
-                        document.getElementById('MyAccountNavLink').classList.remove('d-none');
-                        document.getElementById('LogoutNavLink').classList.remove('d-none');
+                        document.getElementById('ForgotPasswordNavLink').classList.add('d-none');
+                        document.getElementById('SignoutNavLink').classList.remove('d-none');
                         document.getElementById('WelcomeTitle').innerText = "Welcome, you are logged in now";
                     }
                 });
