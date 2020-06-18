@@ -136,8 +136,6 @@
 /home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
 /home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
-/home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/runtimes/osx.10.10-x64/native/System.Security.Cryptography.Native.Apple.dylib
-/home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/runtimes/osx.10.10-x64/native/System.Security.Cryptography.Native.OpenSsl.dylib
 /home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
 /home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
 /home/quentin/MoneyShare/MoneyShare/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll

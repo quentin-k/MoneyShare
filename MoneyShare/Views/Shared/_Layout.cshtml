@@ -1,6 +1,7 @@
 ﻿@using MoneyShare.Models
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<MemberModel> SignInManager
+@inject UserManager<MemberModel> UserManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +40,10 @@
                             <a id="login" href="#" class="nav-link text-dark hide-loggedin" data-toggle="modal" data-target="#modalLogin">Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a id="signout" href="#" class="nav-link text-dark show-loggedin">Sign Out</a>
+                            <a id="forgotPassword" href="#" class="nav-link text-dark hide-loggedin" data-toggle="modal" data-target="#modalForgotPassword">Forgot Password</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="signout" href="#" class="nav-link text-dark show-loggedin">Sign Out @UserManager.GetUserName(User) </a>
                         </li>
                     </ul>
                 </div>
@@ -75,6 +79,43 @@
                         <div class="form-group">
                             <label for="password">Password:</label>
                             <input type="password" class="form-control" placeholder="Enter your password" id="loginPassword" />
+                        </div>
+                    </div>
+                    <div class="form-group d-none" id="loginTwoFactorFormGroup">
+                        <label for="TwoFactorValue">Enter the six digit code from your email:</label>
+                        <input type="password" class="form-control" placeholder="Enter your code" id="loginTwoFactorValue" />
+                    </div>
+                    <div id="loginSpinner" class="spinner-border text-primary d-none"></div>
+                    <button id="loginButton" type="submit" class="btn btn-primary">Log In</button>
+                    <button class="d-none btn-primary btn" id="confirmTwoFactorButton" type="submit">Verify Authentication Code</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalForgotPassword">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Fill out the form to reset password.
+                    <span class="text-danger" id="ForgotPasswordStatus"></span>
+                </div>
+                <div class="modal-body">
+                    <div id="loginUsernamePasswordContainer">
+                        <div class="form-group">
+                            <label for="firstName">First name:</label>
+                            <input type="text" class="form-control" placeholder="Enter your username" id="forgotPasswordFirstName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last name:</label>
+                            <input type="text" class="form-control" placeholder="Enter your username" id="forgotPasswordLastName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" placeholder="Enter your username" id="forgotPasswordUsername" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" id="forgotPasswordEmail" />
                         </div>
                     </div>
                     <div class="form-group d-none" id="loginTwoFactorFormGroup">
