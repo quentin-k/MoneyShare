@@ -19,10 +19,10 @@
             fetch('/api/AuthorizeCheck', requestInfo)
                 .then(response => {
                     if (response.ok) {
-                        document.getElementById('LoginNavLink').classList.add('d-none');
-                        document.getElementById('RegisterNavLink').classList.add('d-none');
-                        document.getElementById('ForgotPasswordNavLink').classList.add('d-none');
-                        document.getElementById('SignoutNavLink').classList.remove('d-none');
+                        document.getElementById('login').classList.add('d-none');
+                        document.getElementById('register').classList.add('d-none');
+                        document.getElementById('forgotPassword').classList.add('d-none');
+                        document.getElementById('signout').classList.remove('d-none');
                         document.getElementById('WelcomeTitle').innerText = "Welcome, you are logged in now";
                     }
                 });
