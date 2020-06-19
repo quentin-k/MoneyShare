@@ -1,8 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
 }
+<script>
+        var jwt = sessionStorage.getItem('jwt');
+        if (jwt != null && jwt != " ") {
+            var requestInfo = { 'method': 'GET', headers: { 'Authorization': 'bearer ' + jwt }, credentials: 'same-origin' };
+            fetch('/api/AuthorizeCheck', requestInfo)
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('login').classList.add('d-none');
+                        document.getElementById('register').classList.add('d-none');
+                        // document.getElementById('thing').classList.remove('d-none');
+                        document.getElementById('signout').classList.remove('d-none');
+                        //document.getElementById('thing2').classList.remove('d-none');
+                        return response.json();
+                    }
+                })
+                .then(data => {
+                    document.getElementById('WelcomeTitle').innerText = "Welcome, " + data.username;
+                });
+        }
+</script>
 
 <div class="text-center">
-    <h1>Welcome to Money Share</h1>
+    <h1 id="WelcomeTitle">Welcome to Money Share</h1>
     <p>A peer to peer money sharing application</p>
 </div>
