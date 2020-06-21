@@ -35,7 +35,7 @@ using MoneyShare.Models;
         {
 #nullable restore
 #line 1 "/home/quentin/MoneyShare/MoneyShare/Views/Home/Index.cshtml"
-  
+
     ViewData["Title"] = "Home Page";
 
 
@@ -58,9 +58,9 @@ using MoneyShare.Models;
                     }
                 })
                 .then(data => {
-                    document.getElementById('WelcomeTitle').innerText = ""Welcome, "" + data.username;
+                    document.getElementById('welcomeTitle').innerText = ""Welcome, "" + data.username;
                 })");
-            WriteLiteral(";\n        }\n</script>\n\n<div class=\"text-center\">\n    <h1 id=\"WelcomeTitle\">Welcome to Money Share</h1>\n    <p>A peer to peer money sharing application</p>\n</div>\n");
+            WriteLiteral(";\n        }\n</script>\n\n<div class=\"text-center\">\n    <h1 id=\"welcomeTitle\">Welcome to Money Share</h1>\n    <p>A peer to peer money sharing application</p>\n</div>\n");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

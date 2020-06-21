@@ -185,3 +185,4 @@
 /home/quentin/MoneyShare/MoneyShare/obj/Debug/netcoreapp3.1/Razor/Views/ApplicationDb/Edit.cshtml.g.cs
 /home/quentin/MoneyShare/MoneyShare/obj/Debug/netcoreapp3.1/Razor/Views/ApplicationDb/Index.cshtml.g.cs
 /home/quentin/MoneyShare/MoneyShare/obj/Debug/netcoreapp3.1/Razor/Views/Home/Register.cshtml.g.cs
+/home/quentin/MoneyShare/MoneyShare/obj/Debug/netcoreapp3.1/Razor/Views/Home/ResetPassword.cshtml.g.cs

@@ -19,11 +19,11 @@
             fetch('/api/AuthorizeCheck', requestInfo)
                 .then(response => {
                     if (response.ok) {
-                        document.getElementById('login').classList.add('d-none');
-                        document.getElementById('register').classList.add('d-none');
-                        document.getElementById('forgotPassword').classList.add('d-none');
-                        document.getElementById('signout').classList.remove('d-none');
-                        document.getElementById('WelcomeTitle').innerText = "Welcome, you are logged in now";
+                        document.getElementById('login').classList.remove('d-none');
+                        document.getElementById('register').classList.remove('d-none');
+                        document.getElementById('forgotPassword').classList.remove('d-none');
+                        document.getElementById('signout').classList.add('d-none');
+                        document.getElementById('welcomeTitle').innerText = "Welcome, you are logged in now";
                     }
                 });
         }
@@ -113,7 +113,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         Fill out the form to reset password.
-                        <span class="text-danger" id="ForgotPasswordStatus"></span>
+                        <span class="text-danger"></span>
                     </div>
                 <div class="modal-body">
                     <div id="loginUsernamePasswordContainer">
@@ -134,13 +134,7 @@
                             <input type="email" class="form-control" placeholder="Enter your email" id="forgotPasswordEmail" />
                         </div>
                     </div>
-                    <div class="form-group d-none" id="loginTwoFactorFormGroup">
-                        <label for="TwoFactorValue">Enter the six digit code from your email:</label>
-                        <input type="password" class="form-control" placeholder="Enter your code" id="loginTwoFactorValue" />
-                    </div>
-                    <div id="loginSpinner" class="spinner-border text-primary d-none"></div>
-                    <button id="loginButton" type="submit" class="btn btn-primary">Log In</button>
-                    <button class="d-none btn-primary btn" id="confirmTwoFactorButton" type="submit">Verify Authentication Code</button>
+                    <button id="forgotPasswordButton" type="submit" class="btn btn-primary">Send reset link</button>
                 </div>
             </div>
         </div>
