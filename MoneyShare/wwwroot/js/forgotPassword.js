@@ -1,11 +1,11 @@
 
 document.getElementById("forgotPasswordButton").addEventListener("click", e => {
-    var firstName = document.getElementById("firstName").value.trim();
-    var lastName = document.getElementById("lastName").value.trim();
-    var email = document.getElementById("email").value.trim();
-    var username = document.getElementById("username").value.trim();
+    var forgotPasswordFirstName = document.getElementById("forgotPasswordFirstName").value.trim();
+    var forgotPasswordLastName = document.getElementById("forgotPasswordLastName").value.trim();
+    var forgotPasswordEmail = document.getElementById("forgotPasswordEmail").value.trim();
+    var forgotPasswordUsername = document.getElementById("forgotPasswordUsername").value.trim();
 
-    data = { 'firstname': firstName, 'lastname': lastName, 'email': email, 'username': username };
+    data = { 'firstname': forgotPasswordFirstName, 'forgotPasswordLastName': forgotPasswordLastName, 'forgotPasswordEmail': forgotPasswordEmail, 'forgotPasswordUsername': forgotPasswordUsername };
     myFetch('/api/ForgotPassword', 'POST', false, data)
         .then(response => {
             if (!response.ok) {
