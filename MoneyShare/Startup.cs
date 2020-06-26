@@ -54,10 +54,10 @@ public class Startup
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz1234567890";
                 options.User.RequireUniqueEmail = true;
-                //options.Tokens
-                //options.ClaimsIdentity
-                //options.Stores
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+                // options.Tokens
+                // options.ClaimsIdentity
+                // options.Stores
+            }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             services.AddAuthentication(auth =>
             {

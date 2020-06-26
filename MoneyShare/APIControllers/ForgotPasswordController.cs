@@ -63,9 +63,8 @@ namespace MoneyShare.Controllers
                     EmailMember.LastName == model.LastName)
                 {
                     var token = await _userManager.GeneratePasswordResetTokenAsync(UnameMember);
-                    var resetLink = Url.Action("index", "Home",
+                    var resetLink = Url.Action("ResetPassword", "Home",
                         new { UserId = EmailMember.Id, Token = token }, Request.Scheme);
-                    resetLink += "#ResetPasswordModal";
                     _memberServices.SendResetLink(UnameMember, resetLink);
                     return new OkResult();
                 }
