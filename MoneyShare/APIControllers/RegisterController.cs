@@ -67,7 +67,6 @@ namespace MoneyShare.Controllers
             IdentityResult result = await _userManager.CreateAsync(member, model.Password);
             if (result.Succeeded)
             {
-                IdentityRole userRole = _roleManager.Roles.FirstOrDefault(r => r.Name == "User");
                 IdentityRole memberRole = _roleManager.Roles.FirstOrDefault(r => r.Name == "Member");
                 IdentityRole adminRole = _roleManager.Roles.FirstOrDefault(r => r.Name == "Admin");
                 if (memberRole == null)
