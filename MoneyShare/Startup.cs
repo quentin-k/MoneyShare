@@ -86,7 +86,7 @@ public class Startup
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env, RoleManager<IdentityRole> roleManager, UserManager<MemberModel> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -113,6 +113,18 @@ public class Startup
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            IdentityRole adminRole = new IdentityRole
+            {
+                Name = "appAdmin"
+            };
+            await roleManager.CreateAsync(adminRole);
+
+            IdentityRole memberRole = new IdentityRole
+            {
+                Name = "member"
+            };
+            await roleManager.CreateAsync(memberRole);
         }
     }
 }
