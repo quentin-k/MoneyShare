@@ -1,21 +1,22 @@
 """
 quentin-k 2020
 """
-import os
-import secrets
+from os import name as n
+from os import system as s
+from secrets import token_hex as t
 
 def clear():
     #clear the screen
-    os.system('cls' if os.name == 'nt' else 'clear')
+    s('cls' if n == 'nt' else 'clear')
 
 def genJwt():
     # generates a secure custom key
-    jwt = secrets.token_hex(4)
+    jwt = t(4)
     for _i in range(3):
         jwt += "-"
-        jwt += secrets.token_hex(2)
+        jwt += t(2)
     jwt += "-"
-    jwt += secrets.token_hex(6)
+    jwt += t(6)
     return jwt
 
 # set email
@@ -27,7 +28,7 @@ email_from = input("What is your desired from email (" + email + ") is default: 
 clear()
 if email_from == "":
     email_from = email
-    
+
 # set email password
 password = input("What is your email password? ")
 clear()
@@ -53,13 +54,14 @@ else:
     jwt = genJwt()
 clear()
 # configure dotnet secrets
+s("dotnet secrets init")
 dotnetMsg = "dotnet user-secrets set "
-os.system("cd ./MoneyShare/")
-os.system(dotnetMsg+'"Email:Username" "'+email+'"')
-os.system(dotnetMsg+'"Email:Host" "'+host+'"')
-os.system(dotnetMsg+'"Email:Password" "'+password+'"')
-os.system(dotnetMsg+'"Email:Port" "'+port+'"')
-os.system(dotnetMsg + '"Email:From" "' + email_from + '"')
-os.system(dotnetMsg + '"JwtKey" "' + jwt + '"')
+s("cd ./MoneyShare/")
+s(dotnetMsg+'"Email:Username" "'+email+'"')
+s(dotnetMsg+'"Email:Host" "'+host+'"')
+s(dotnetMsg+'"Email:Password" "'+password+'"')
+s(dotnetMsg+'"Email:Port" "'+port+'"')
+s(dotnetMsg + '"Email:From" "' + email_from + '"')
+s(dotnetMsg + '"JwtKey" "' + jwt + '"')
 
 print("Done")
