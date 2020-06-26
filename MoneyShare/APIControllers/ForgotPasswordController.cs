@@ -50,7 +50,7 @@ namespace MoneyShare.Controllers
                 string.IsNullOrWhiteSpace(model.FirstName) ||
                 string.IsNullOrWhiteSpace(model.LastName))
             {
-                return new OkResult();
+                return new UnauthorizedResult();
             }
             else
             {
@@ -69,7 +69,7 @@ namespace MoneyShare.Controllers
                     _memberServices.SendResetLink(UnameMember, resetLink);
                     return new OkResult();
                 }
-                return new OkResult();
+                return new UnauthorizedResult();
             }
         }
     }

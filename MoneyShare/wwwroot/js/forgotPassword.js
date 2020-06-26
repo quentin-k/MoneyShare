@@ -5,7 +5,7 @@ document.getElementById("forgotPasswordButton").addEventListener("click", e => {
     var forgotPasswordEmail = document.getElementById("forgotPasswordEmail").value.trim();
     var forgotPasswordUsername = document.getElementById("forgotPasswordUsername").value.trim();
 
-    data = { 'firstname': forgotPasswordFirstName, 'forgotPasswordLastName': forgotPasswordLastName, 'forgotPasswordEmail': forgotPasswordEmail, 'forgotPasswordUsername': forgotPasswordUsername };
+    data = { 'FirstName': forgotPasswordFirstName, 'LastName': forgotPasswordLastName, 'Email': forgotPasswordEmail, 'Username': forgotPasswordUsername };
     myFetch('/api/ForgotPassword', 'POST', false, data)
         .then(response => {
             if (!response.ok) {
