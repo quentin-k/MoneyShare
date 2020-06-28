@@ -2,8 +2,8 @@ document.getElementById('ResetPasswordSubmit').addEventListener("click", e => {
     var urlParams = new URLSearchParams(window.location.search);
     var userId = urlParams.get('UserId');
     var token = urlParams.get('Token');
-    var password = document.getElementById('Password').value;
-    var confirmPassword = document.getElementById('ConfirmPassword').value;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
     if (password == confirmPassword) {
         var data = { 'UserId': userId, 'Token': token, 'Password': password, 'ConfirmPassword': confirmPassword };
         console.log(data);
