@@ -44,16 +44,16 @@ async function isLoggedIn() {
 }
 
 
-function showHideBasedOnLogin() {
-    if (loggedIn) {
-        document.querySelectorAll(".hide-loggedin").forEach(box => { box.classList.add('d-none') });
-        document.querySelectorAll(".show-loggedin").forEach(box => { box.classList.remove('d-none') });
-    }
-    else {
-        document.querySelectorAll(".hide-loggedin").forEach(box => { box.classList.remove('d-none') });
-        document.querySelectorAll(".show-loggedin").forEach(box => { box.classList.add('d-none') });
-    }
-}
+// function showHideBasedOnLogin() {
+//     if (loggedIn) {
+//         document.querySelectorAll(".hide-loggedin").forEach(box => { box.classList.add('d-none') });
+//         document.querySelectorAll(".show-loggedin").forEach(box => { box.classList.remove('d-none') });
+//     }
+//     else {
+//         document.querySelectorAll(".hide-loggedin").forEach(box => { box.classList.remove('d-none') });
+//         document.querySelectorAll(".show-loggedin").forEach(box => { box.classList.add('d-none') });
+//     }
+// }
 
 var ready = (callback) => {
     if (document.readyState != "loading") callback();

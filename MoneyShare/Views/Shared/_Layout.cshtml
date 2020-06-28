@@ -22,13 +22,27 @@
                         document.getElementById('login').classList.add('d-none');
                         document.getElementById('register').classList.add('d-none');
                         document.getElementById('forgotPassword').classList.add('d-none');
+                        document.getElementById('adminPanel').classList.add('d-none');
                         document.getElementById('signout').classList.remove('d-none');
                         fetch("/api/AdminCheck", requestInfo)
                         .then(response => {
                             if (response.ok) {
                                 document.getElementById('adminPanel').classList.remove('d-none');
                             }
-                        })
+                            else
+                            {
+                                document.getElementById('adminPanel').classList.add('d-none');
+                            }
+                        });
+                    }
+                    else
+                    {
+                        document.getElementById('login').classList.remove('d-none');
+                        document.getElementById('register').classList.remove('d-none');
+                        document.getElementById('forgotPassword').classList.remove('d-none');
+                        document.getElementById('signout').classList.add('d-none');
+                        document.getElementById('adminPanel').classList.add('d-none');
+
                     }
                 });
         }
@@ -61,10 +75,10 @@
                             <a id="forgotPassword" href="#" class="nav-link text-dark hide-loggedin" data-toggle="modal" data-target="#modalForgotPassword">Forgot Password</a>
                         </li>
                         <li class="nav-item">
-                            <a id="signout" href="#" class="nav-link text-dark show-loggedin">Sign Out</a>
+                            <a id="signout" href="#" class="nav-link text-dark d-none">Sign Out</a>
                         </li>
                         <li class="nav-item">
-                            <a id="adminPanel" asp-controller="ApplicationDb" asp-action="Index" class="nav-link text-dark show-loggedin">admin Panel</a>
+                            <a id="adminPanel" asp-controller="ApplicationDb" asp-action="Index" class="nav-link text-dark d-none">admin Panel</a>
                         </li>
                     </ul>
                 </div>

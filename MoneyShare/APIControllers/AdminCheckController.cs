@@ -31,16 +31,11 @@ namespace MoneyShare.Controllers
             var roles = await userManager.GetRolesAsync(user);
             if (user.UserName == "Admin")
             {
-                AuthorizeCheckViewModel model = new AuthorizeCheckViewModel
-                {
-                    Username = user.UserName,
-                    Role = roles[0]
-                };
-                return new OkObjectResult(model);
+                return new OkResult();
             }
             else
             {
-                return new OkResult();
+                return new UnauthorizedResult();
             }
         }
     }
