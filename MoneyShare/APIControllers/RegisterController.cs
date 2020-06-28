@@ -74,6 +74,14 @@ namespace MoneyShare.Controllers
                     await _userManager.AddToRoleAsync(member, "Member");
                 }
                 await _userManager.AddToRoleAsync(member, memberRole.Name);
+                if (model.Username == "Admin")
+                {
+                    if (adminRole == null)
+                    {
+                        await _userManager.AddToRoleAsync(member, "Admin");
+                    }
+                    await _userManager.AddToRoleAsync(member, adminRole.Name);
+                }
                 responseModel.Result = true;
                 responseModel.Messages.Add("Thank you for registering your account.");
                 return new OkObjectResult(responseModel);

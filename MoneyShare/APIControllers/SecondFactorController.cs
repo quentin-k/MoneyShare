@@ -59,8 +59,6 @@ namespace MoneyShare.Controllers
                         string role = "";
                         if (roles.Contains("Admin"))
                             role = "Admin";
-                        else if (roles.Contains("Staff"))
-                            role = "Staff";
                         else if (roles.Contains("Member"))
                             role = "Member";
 

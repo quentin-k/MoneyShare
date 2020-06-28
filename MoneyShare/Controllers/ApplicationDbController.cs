@@ -21,14 +21,14 @@ namespace MoneyShare.Controllers
         }
 
         // GET: ApplicationDb
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.MemberModels.ToListAsync());
         }
 
         // GET: ApplicationDb/Details/5
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -47,7 +47,7 @@ namespace MoneyShare.Controllers
         }
 
         // GET: ApplicationDb/Create
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -57,7 +57,7 @@ namespace MoneyShare.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("FirstName,LastName,TwoFactorCode,TwoFactorCodeDateTime,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] MemberModel memberModel)
         {
             if (ModelState.IsValid)
@@ -70,7 +70,7 @@ namespace MoneyShare.Controllers
         }
 
         // GET: ApplicationDb/Edit/5
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -90,7 +90,7 @@ namespace MoneyShare.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id, [Bind("FirstName,LastName,TwoFactorCode,TwoFactorCodeDateTime,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] MemberModel memberModel)
         {
             if (id != memberModel.Id)
@@ -122,7 +122,7 @@ namespace MoneyShare.Controllers
         }
 
         // GET: ApplicationDb/Delete/5
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -142,7 +142,7 @@ namespace MoneyShare.Controllers
 
         // POST: ApplicationDb/Delete/5
         [HttpPost, ActionName("Delete")]
-        [Authorize(Roles = "AppAdmin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var memberModel = await _context.MemberModels.FindAsync(id);

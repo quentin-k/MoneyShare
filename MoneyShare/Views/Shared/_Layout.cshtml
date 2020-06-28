@@ -23,6 +23,12 @@
                         document.getElementById('register').classList.add('d-none');
                         document.getElementById('forgotPassword').classList.add('d-none');
                         document.getElementById('signout').classList.remove('d-none');
+                        fetch("/api/AdminCheck", requestInfo)
+                        .then(response => {
+                            if (response.ok) {
+                                document.getElementById('adminPanel').classList.remove('d-none');
+                            }
+                        })
                     }
                 });
         }
@@ -56,6 +62,9 @@
                         </li>
                         <li class="nav-item">
                             <a id="signout" href="#" class="nav-link text-dark show-loggedin">Sign Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="adminPanel" asp-controller="ApplicationDb" asp-action="Index" class="nav-link text-dark show-loggedin">admin Panel</a>
                         </li>
                     </ul>
                 </div>
